@@ -1,0 +1,154 @@
+<!--<!DOCTYPE html>-->
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
+	<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
+
+
+    <link rel="stylesheet" type="text/css" href="static/css/style.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:100,300,400' rel='stylesheet' type='text/css'>
+    <link href="static/css/jquery-ui.min.css" rel="stylesheet">
+	<link rel="stylesheet/less" type="text/css" href="static/css/add.less" />
+	<script src="static/js/less.min.js"></script>
+	<script src="static/js/jquery.min.js"></script>
+	<script src="static/js/jquery-ui.min.js"></script>
+	<script src="static/js/script.js"></script>
+	
+
+	<title></title>
+</head>
+<body>
+	<nav id="nav-bar">
+		<div id="course-title">
+			<a href="/add">
+				<img src="static/imgs/account.png"/>
+				<h1>Manage</h1>
+			</a>
+			<a href="/courses">
+				<img src="static/imgs/courses.png"/>
+				<h1>Courses</h1>
+			</a>
+			<a href="/calendar">
+				<img src="static/imgs/calendar.png"/>
+				<h1>Calendar</h1>
+			</a>
+			<a href="/login">
+				<img src="static/imgs/logout.png"/>
+				<h1>Logout</h1>
+			</a>
+		</div>
+		<div id="course-result">
+		</div>
+	</nav>
+	<!-- <div id="content"> -->
+		<div id="leftContent">
+			<div id="search-bar">
+				<div id="add-course">
+					<a href=""><img src="static/imgs/add.png"/>Add Course</a>
+				</div>
+				<div id="remove-course">
+					<a href=""><img src="static/imgs/delete.png"/>Remove Course</a>
+				</div>
+				<div id="create-deadline">
+					<a href=""><img src="static/imgs/create.png"/>Create Deadline</a>
+				</div>
+			</div>
+			<div id="deadlines-title">
+				<h1>Deadlines</h1>
+			</div>
+			<div id="search-result">
+			</div> <!-- search-result -->
+		</div> <!-- leftContent -->
+		<div id="right-pane">
+			<div id="add-deadline-page">
+				<div id="no-courses-message">
+				</div>
+				<div class="top-bar" id="top-bar">
+					<!-- <div class="right-content-title" id="add-page-title">
+						<input type="text" id="deadline_title" name="deadline_title" placeholder="ENTER TITLE">
+					</div> -->
+				</div>
+				<div class="second-bar" id="second-bar">
+					<!-- <div class="right-content-due-date" id="add-page-due-date">
+						<h1>Enter Due Date</h1><input type="date" id="due_date" name="due_date">
+					</div>
+					<div class="right-content-due-date" id="add-page-due-date">
+						<h1>Enter Time Due</h1><input type="time" id="time_due" name="time_due">
+					</div>
+					<div class="right-content-due-date" id="add-page-due-date">
+						<h1>Enter Location</h1><input type="text" id="location_due" name="location_due">
+					</div>
+					<div class="right-content-due-date" id="add-page-target-course">
+						<h1>Select A Course</h1>
+						<select class="form-control" name="user_course_code" id="user_course_code">
+						</select>
+					</div> -->
+				</div>
+				<div id="description-title-bar">
+					<!-- <h1 id="description_title"></h1> -->
+				</div>
+				<div class="right-content-detail" id="add-page-detail">
+					<!-- <textarea id="textInput"  name="description" placeholder="Enter Description"></textarea> -->
+				</div>
+				<div class="buttons" id="add-page-button">
+					<!-- <button type="button" id="button-add-deadline" onclick="addDeadline();">Add Deadline</button> -->
+				</div>
+			</div> <!-- add-deadline-page -->
+
+			<div id="add-course-page">
+				<div class="top-bar">
+					<div class="right-content-title" id="addcourse-page-title">
+						<label for="course_code">Course Code:</label>
+						<input type="text" id="course_code" name="course_code" placeholder="Enter Course Code (eg. CSC108H1)" onchange="updateCourseSectionInfo();" onkeyup="captilalize.call(this, event); updateCourseSectionInfo();" class="capitalize">
+					</div>
+				</div>
+				<div class="second-bar">
+					<div class="right-content-due-date" id="addcourse-page-section">
+						<label for="course_sect_id">Course Section:</label>
+						<select class="form-control" name="course_sect_id" id="course_sect_id" >
+						</select>
+					</div>
+				</div>
+				<div class="buttons" id="add-page-button">
+					<button type="button" id="button-add-course" onclick="addCourse();">Add Course</button>
+				</div>
+			</div> <!-- add-course-page -->
+
+			<div id="remove-course-page">
+				<div id="course-items">
+				</div>
+				<button type="button" id="button-done">Done</button>
+			</div>
+
+
+			<div id="rightContent">
+				<h1>Manage Account</h1>
+				<h2>Here you can do the following by selecting from the menu to the left:</h2>
+				<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1. Add Course - add courses to your account in which you are enrolled</h2>
+				<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2. Remove Course - view and/or remove courses added to your account</h2>
+				<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3. Create Deadline - add a deadline to your calendar for a course already added to your account</h2>
+				<h2 id="deadlines-status"></h2>
+				<!--<div class="buttons">
+					<button type="button" id="button-disagree">
+						Disagree
+					</button>
+					<button type="button" id="button-add">
+						Add to My Calendar
+					</button>
+				</div>-->
+			</div> <!-- rightContent -->
+			<div id="display-deadline-page"> 
+
+			</div>
+
+		</div>
+		
+    <!-- </div> --> <!-- content -->
+
+</body>
+</html>

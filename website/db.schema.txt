@@ -1,0 +1,59 @@
+CREATE TABLE security_questions (
+    question_name TEXT PRIMARY KEY,
+    question TEXT
+);
+CREATE TABLE app_users (
+    id SERIAL PRIMARY KEY,
+    email TEXT,
+    pw TEXT,
+    question TEXT REFERENCES security_questions (question_name),
+    answer TEXT
+);
+CREATE TABLE app_sessions (
+	session_id CHAR(128) UNIQUE NOT NULL,
+	atime TIMESTAMP NOT NULL default current_timestamp,
+	data TEXT
+);
+CREATE TABLE courses (	
+	course_id SERIAL PRIMARY KEY,
+	name TEXT,
+	course_code CHAR(8),
+	semester CHAR(1),
+	year INTEGER
+);
+CREATE TABLE course_sections (
+	course_sec_id SERIAL PRIMARY KEY,
+	course_id INTEGER REFERENCES courses (course_id) ON UPDATE CASCADE ON DELETE CASCADE,
+	section CHAR(5),
+	lecturer CHAR(40)
+);
+CREATE TABLE course_section_lecture_details (
+	course_sec_id INTEGER,
+	time INTEGER,
+	length INTEGER,
+	date CHAR(1),
+	location CHAR(30),
+	UNIQUE(course_sec_id, time, date, length, location)
+);
+CREATE TABLE user_course_sections (
+	user_id INTEGER REFERENCES app_users (id),
+	course_sec_id INTEGER REFERENCES course_sections (course_sec_id),
+	tutorial_sec BOOLEAN,
+	UNIQUE(user_id, course_sec_id, tutorial_sec)
+);
+CREATE TABLE due_date (
+	due_date_id SERIAL PRIMARY KEY,
+	date DATE,
+	time TIME,
+	length_in_min INTEGER,
+	location CHAR(10),
+	description CHAR(1500)
+);
+CREATE TABLE course_section_due_dates (
+	course_section_due_date_id SERIAL PRIMARY KEY,
+	user_id INTEGER REFERENCES app_users (id),
+	course_sec_id INTEGER REFERENCES course_sections (course_sec_id),
+	item_due_name CHAR(30),
+	due_date_id INTEGER REFERENCES due_date (due_date_id),
+	UNIQUE(user_id, course_sec_id, item_due_name)
+);

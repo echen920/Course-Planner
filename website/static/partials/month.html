@@ -1,0 +1,29 @@
+<div id="titleHeader">
+	<div>
+		<span ng-click="prev()" class="">&lt;</span>
+		{{calTitle}}
+		<span ng-click="next()" class="">&gt;</span>
+	</div>
+</div>
+<div id="calendarHeader">
+	<div class="cal-row">
+		<div class="cal-cell">Sun<span class="hide-sm">day</span></div>
+		<div class="cal-cell">Mon<span class="hide-sm">day</span></div>
+		<div class="cal-cell">Tue<span class="hide-sm">sday</span></div>
+		<div class="cal-cell">Wed<span class="hide-sm">nesday</span></div>
+		<div class="cal-cell">Thu<span class="hide-sm">rsday</span></div>
+		<div class="cal-cell">Fri<span class="hide-sm">day</span></div>
+		<div class="cal-cell">Sat<span class="hide-sm">urday</span></div>
+	</div>
+</div>
+<div id="calendarBody">
+	<div class="cal-row" ng-repeat="week in month">
+		<div class="cal-cell">{{week[0]}}</div>
+		<div class="cal-cell">{{week[1]}}</div>
+		<div class="cal-cell">{{week[2]}}</div>
+		<div class="cal-cell">{{week[3]}}</div>
+		<div class="cal-cell">{{week[4]}}</div>
+		<div class="cal-cell">{{week[5]}}</div>
+		<div class="cal-cell">{{week[6]}}</div>
+	</div>
+</div>

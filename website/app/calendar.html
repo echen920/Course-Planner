@@ -1,0 +1,106 @@
+<!--<!DOCTYPE html>-->
+<html ng-app="studentScheduleApp">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
+	<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
+
+	
+    <link rel="stylesheet" type="text/css" href="static/css/style.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:100,300,400' rel='stylesheet' type='text/css'/>
+    <link href="static/css/jquery-ui.min.css" rel="stylesheet"/>
+	<link rel="stylesheet/less" type="text/css" href="static/css/calendar.less"/>
+	<script src="static/js/less.min.js"></script>
+	<script src="static/js/jquery.min.js"></script>
+	<script src="static/js/jquery-ui.min.js"></script>
+	
+
+	<link href='../static/fullcalendar/fullcalendar.css' rel='stylesheet' />
+	<link href='../static/fullcalendar/fullcalendar.print.css' rel='stylesheet' media='print' />
+	<script src='../static/fullcalendar/lib/moment.min.js'></script>
+	<script src='../static/fullcalendar/lib/jquery.min.js'></script>
+	<script src='../static//fullcalendar/fullcalendar.min.js'></script>
+	
+	<script src="static/js/calendarScript.js"></script>
+
+	<title></title>
+
+	<style> 
+		#fullCalendar {
+			float: left;
+			/*position: absolute;*/
+			z-index: 0;
+			padding-right: 100px;
+			padding-top: 20px;
+			max-width: 900px;
+			margin: 0 auto;
+		}
+		/*#right-pane {
+			position: fixed;
+			left: 100px;
+			top: 0px;
+			width: 100%;	
+			height: 100%;
+			overflow-x: auto;
+		}*/
+		#nav-bar {
+			/*z-index: 999 !important;*/
+			position: fixed;
+
+		}
+</style>
+
+</head>
+<body>
+	
+	
+	<nav id="nav-bar">
+		<div id="course-title">
+			<a href="/add">
+				<img src="static/imgs/account.png"/>
+				<h1>Manage</h1>
+			</a>
+			<a href="/courses">
+				<img src="static/imgs/courses.png"/>
+				<h1>Courses</h1>
+			</a>
+			<a href="/calendar">
+				<img src="static/imgs/calendar.png"/>
+				<h1>Calendar</h1>
+			</a>
+			<a href="/login">
+				<img src="static/imgs/logout.png"/>
+				<h1>Logout</h1>
+			</a>
+		</div>
+	</nav>
+	<div id='fullCalendar'></div>
+	<!-- <div id="right-pane"> -->
+			<!-- <div id="course-rightContent"> -->
+				<!-- <h2>Select an event from the calendar to view more information.</h2> -->
+			<!-- </div> -->
+	<!-- </div> -->
+
+	<!-- <div id="content"> -->
+		<!-- <div id="calendar"> -->
+		<!-- <div id="calSelect">
+			<div>
+				<ul>
+					<li><a href="#/month" ng-class="{active: location.url().search('/month') > 0}">Month</a></li>
+					<li><a href="#/week" ng-class="{active: location.url().search('/week') > 0}">Week</a></li>
+					<li><a href="#/day" ng-class="{active: location.url().search('/day') > 0}">Day</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="calendarContainer">
+			<div id="calendar" ng-view>
+			</div>
+		</div>
+	</div> content -->
+
+</body>
+</html>

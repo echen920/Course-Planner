@@ -1,0 +1,50 @@
+1. Why are you changing your design.
+	We are changing our design to better suit the needs we realized we needed after phase 2. 
+
+
+
+
+
+
+2. Briefly highlight the problems you have faced and how as a team you managed to solve them.
+	- Learning API's and languages - we learned.
+	- Better communication.
+	- Should have used more git issues 
+	- Should have metup more opten. 
+
+
+3- Highlight Design Patterns
+	- Highlight all Design Patterns you have used in your project.
+			- Iterator design pattern used within database. 
+			- MVC - 
+			- MVW - Angular JS. 
+
+
+
+
+Phase 4.
+
+	Front end:
+		Port erics design.		
+			fixing small UI bugs. 
+		Things need to show up on the calendar.
+		Display monthly/weekly/daily
+		View more information about a specific course/deadline.
+
+	Back end:
+		Implement the crowdsourcing of deadlines.
+			If there is a tie, choose the most recent updated deadline.
+
+		filtering options
+			detect deadlines on the same day and only show one. 
+		Implement recurring events.
+	
+
+	Extra requirements:
+		Add the ability to see other users enrolled based on email address. 
+		Add ability to email everyone in the class.
+			Open up new message in mail app. 
+
+
+	Remove professor/TA role 
+	Remove upvoting and downvoting. 

@@ -1,0 +1,43 @@
+$def with (errora, errorp, uid, question)
+
+<!DOCTYPE html>
+<html ng-app="studentScheduleApp">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+	<link href="static/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet/less" type="text/css" href="static/css/style.less" />
+	<script src="static/js/less.min.js"></script>
+	<script src="static/js/jquery.min.js"></script>
+	<script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/angular.min.js"></script>
+    <script src="static/js/angular.route.min.js"></script>
+    <script src="static/js/app.js"></script>
+    <script src="static/js/controller.js"></script>
+    <!--script src="static/js/button.js"></script-->
+	<title></title>
+</head>
+<body>
+	<div id="content">
+		<div class="container" id="login">
+	    	<form class="form-signin" role="form" action="security" method="post">
+	        	<input type="hidden" value="$question" name="question" id="question">
+	        	<input type="hidden" value=$uid name="uid" id="uid">
+	        	<h2 class="form-signin-heading">Please answer the following security question:</h2>
+	        	<h3 class="form-signin-heading">$question</h3>
+	        	$if errora:
+	        		<h4 class="red">Incorrect answer</h4>
+	        	<input class="form-control" placeholder="Answer" required="" autofocus="" type="" name="answer" id="answer">
+	        	<h3 class="form-signin-heading">Enter a new password:</h3>
+	        	$if errorp:
+	        		<h4 class="red">Passwords don't match</h4>
+	        	<input class="form-control pw" placeholder="Password" required="" type="password" name="pw">
+	        	<input class="form-control pw" placeholder="Confirm Password" required="" type="password" name="repeat_pw">
+	        	<button class="btn btn-lg btn-primary btn-block" type="submit" id="forgotBtn">Reset Password</button>
+	      	</form>
+	    </div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+DEMO
+
+1. Login as test@utoronto.ca pw: 123456
+2. show home page (calendar) 
+3. go to 'Courses' and show course list
+4. select CSC108 and show course details
+5. select CSC236 and show course details
+6. go to 'Manage' and show deadlines list
+7. click 'View' for A1 and show deadline details
+8. click 'View' for Midterm and show deadline details
+9. click 'Delete' for A1 
+10. go to 'Add Course' and add CSC165H1F (show course sections choices)
+11. go to 'Courses' and show CSC165H1F was added
+12. click on CSC165 and show course details
+13. go to 'Calendar' and show CSC165 was added
+14. go back to 'Manage' and click 'Create Deadline' 
+14(B) show deadine is not successfully created if data is incomplete
+15. create Midterm for CSC165 (date: Nov. 14) 
+16. show deadline was added to deadlines list 
+17. go to 'Courses' and click CSC165 to show deadline was added here too
+18. go to 'Calendar' and show deadline was added here too
+19. go to 'Remove Course' and remove CSC165
+20. show Midterm for CSC165 was automatically removed
+21. go to 'Courses' and show CSC165 was removed
+22. go to 'Calendar' and show CSC165 and its deadlines were removed
+23. click left/right arrows to scroll through months
+24. click 'today'
+25. clcik 'week' and scroll through weeks
+26. click 'today'
+27. click 'day' and scroll through days
+28. click 'today'
+29. click 'Logout' 
+30. click 'Create an account' and create user tyler@mail.utoronto.ca pw: 123456
+31. login as new user tyler@mail.utoronto.ca
+32. go to 'Courses' to show it's also empty 
+33. go to 'Manage' and add CSC108H1F and CSC165H1F
+34. go to 'Courses' and select CSC108 to show couse details
+35. show students enrolled, and click on email icon beside test@utoronto.ca to pop up email box
+36. select CSC165 to show course details 
+37. go to 'Calendar' to show calendar is populated 
+38. click 'Logout' 
+39. click 'Create an account' and create user lana@mail.utoronto.ca pw: 123456
+40. login as new user lana@mail.utoronto.ca
+41. go to 'Manage' and click 'Add Course' and add CSC108H1F
+42. go to 'Courses' and select CSC108H1F
+43. click email icon beside 'Email All Students'

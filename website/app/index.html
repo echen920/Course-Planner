@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html ng-app="studentScheduleApp">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+	<link href="static/css/jquery-ui.min.css" rel="stylesheet">
+	<link href="static/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet/less" type="text/css" href="static/css/style.less" />
+	<script src="static/js/less.min.js"></script>
+	<script src="static/js/jquery.min.js"></script>
+	<script src="static/js/jquery-ui.min.js"></script>
+	<script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/angular.min.js"></script>
+    <script src="static/js/angular.route.min.js"></script>
+    <script src="static/js/app.js"></script>
+    <script src="static/js/controller.js"></script>
+    <script src="static/js/typeahead.js"></script>
+    <script src="static/js/function.js"></script>
+	<title></title>
+</head>
+<body>
+	<div id="content">
+		<div id="leftContent">
+			<button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#addCourseModal">Add Course</button>
+			<button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#deadlineModal" id="addDeadlineBtn" onclick="setUpAddDeadLine();">Add Deadline</button>
+			<button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#removeCourseModal">Remove Course</button>
+		</div>
+		<div id="rightContent">
+			<div id="calendar" ng-view class="view-frame full-height"></div>
+		</div>
+    </div>
+
+    <!-- Toolbar at the top -->
+     <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right" ng-controller="currentCalView">
+          	<li ng-class="{active: location.url().search('/courses') == 0}"><a href="#/courses">Courses</a></li>
+            <li ng-class="{active: location.url().search('/dates') == 0}"><a href="#/dates">Dates</a></li>
+            <li ng-class="{active: location.url().search('/month') == 0}"><a href="#/month">Month</a></li>
+            <li ng-class="{active: location.url().search('/week') == 0}"><a href="#/week">Week</a></li>
+            <li><a href="/logout">Log Out</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Course modal -->
+    <div class="modal fade" id="addCourseModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Add Course</h4>
+	      </div>
+	      <div class="modal-body">
+	        <div class="input-group">
+			  <span class="input-group-addon">Course Name</span>
+			  <input type="text" class="form-control typeahead" placeholder="e.g. CSC104" name="name" id="course_code" data-provide="typeahead" autocomplete="off" onchange="updateCourseSectionInfo();">
+			</div>
+			<div class="input-group" id="addCourseSect">
+			  <span class="input-group-addon">Course Section</span>
+			  <select class="form-control" name="course_sect_id" id="course_sect_id">
+			  </select>
+			</div>
+		  </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary" onclick="addCourse();" data-dismiss="modal">Add Course</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- Course modal -->
+    <div class="modal fade" id="removeCourseModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Remove Courses</h4>
+	        <br/>
+	        <span>Select all the courses you want to remove</span>
+	      </div>
+	      <div class="modal-body">
+	        <button value="1" type="button" class="btn btn-primary btn-lg btn-block">CSC104: T0101</button>
+	        <button value="2" type="button" class="btn btn-primary btn-lg btn-block">CSC108: L0101</button>
+		  </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary" onclick="removeCourses();" data-dismiss="modal">Remove Courses</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- Deadline modal -->
+	<div class="modal fade" id="deadlineModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <h4 class="modal-title">Add Deadline</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<div class="input-group">
+			  <span class="input-group-addon">Course</span>
+			  <select class="form-control" name="deadline_course_sect_id" id="deadline_course_sect_id">
+			  </select>
+			</div>
+	        <div class="input-group">
+			  <span class="input-group-addon">Date</span>
+			  <input class="form-control date-picker" placeholder="YYYY-MM-DD" id="addDeadLineDate">
+			  <span class="input-group-addon">Time</span>
+			  <input class="form-control" name="addDeadLineTime" id="addDeadLineTime">
+			  </select>
+			</div>
+			<div class="input-group" id="addCourseSect">
+			  <span class="input-group-addon">Location</span>
+			  <input type="text" class="form-control" placeholder="e.g. BA1200" id="addDeadLineLocation">
+			</div>
+			<div class="input-group" id="addCourseSect">
+			  <span class="input-group-addon">Item</span>
+			  <select class="form-control" name="addDeadLineItemType" id="addDeadLineItemType">
+				<option value="Assignment">Assignment</option>
+				<option value="Test">Test</option>
+				<option value="Midterm">Midterm</option>
+				<option value="Problem Set">Problem Set</option>
+				<option value="Quiz">Quiz</option>
+				<option value="Exam">Exam</option>
+				<option value="Office Hours">Office Hours</option>
+			  </select>
+			  <input type="number" class="form-control" name="addDeadLineItemNum" id="addDeadLineItemNum">
+			</div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary" onclick="addImportantDate();">Submit</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,611 @@
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	font-family: 'Alegreya Sans', sans-serif;
+	font-weight: 300;
+	min-width: 1240px;
+}
+
+table, td, th {
+	border: solid 1px;
+	border-collapse: collapse;
+}
+
+td, th {
+	padding: 15px;
+}
+
+input {
+	border: none;
+	background: #FFF;
+	width: 165px;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+#nav-bar {
+	width: 70px;
+	height: 100%;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	background-color: black;
+	color: white;
+}
+
+#nav-bar h1 {
+	font-size: 15px;
+}
+
+#leftContent {
+	width: 340px;
+	height: 100%;
+	position: fixed;
+	left: 70px;
+	top: 0px;
+	background-color: #E6E6E6;
+	overflow-x: hidden;
+}
+
+#right-pane {
+	position: fixed;
+	left: 410px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	overflow-x: auto;
+}
+
+#course-leftContent {
+	width: 340px;
+	height: 100%;
+	position: fixed;
+	left: 70px;
+	top: 0px;
+	background-color: #E6E6E6;
+	overflow-x: hidden;
+}
+
+#course-rightContent {
+	padding: 10px;
+	position: fixed;
+	left: 410px;
+	top: 0px;
+	width: 100%;
+	height: 95%;
+	overflow-y: auto;
+}
+
+#course-rightContent div img{
+	display: inline-block;
+	padding-top: 14px;
+	padding-right: 10px;
+	width: 20px;
+	height: 20px;
+	float: right;
+}
+
+#course-rightContent h2 {
+	font-size: 20px;
+	display: inline-block;
+	font-weight: bold;
+	padding-right: 20px;
+}
+
+.student-email {
+	display: inline-block;
+	font-size: 20px;
+	font-weight: 400;
+}
+
+
+#search-bar {
+	width: 100%;
+	height: 60px;
+	padding-top: 10px;
+	text-align: center;
+	border-bottom: solid 1px #858585;
+}
+
+#search-bar div {
+	display: inline-block;
+	text-align: center;
+	font-size: 10px;
+	padding-right: 30px;
+	font-weight: 400;
+}
+
+#search-bar img {
+	display: block;
+	height: 35px;
+	width: 35px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#search-bar div:last-child{
+	padding-right: 0px;
+}
+
+#course-bar {
+	width: 100%;
+	height: 60px;
+	padding-top: 10px;
+	text-align: center;
+	border-bottom: solid 1px #858585;
+}
+
+#course-bar div {
+	display: inline-block;
+	text-align: center;
+	font-size: 10px;
+	padding-right: 30px;
+	font-weight: 400;
+}
+
+#course-bar img {
+	display: block;
+	height: 35px;
+	width: 35px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#course-bar div:last-child{
+	padding-right: 0px;
+}
+
+#search-result {
+	background-color: #E6E6E6;
+}
+
+#course-result {
+	background-color: #E6E6E6;
+}
+
+#course-list {
+	background-color: #E6E6E6;
+}
+
+.navbar {
+	display: none;
+}
+
+.post-user-img img {
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+}
+
+.post-user-img {
+	float: left;
+	padding: 10px;
+}
+
+.post-info {
+	float: left;
+	padding: 10px;
+	width: 300px;
+}
+
+.post-title {
+	font-size: 25px;
+	border-bottom: solid 1px #969696;
+	color: black;
+	font-weight: 400;
+
+}
+
+.post-course {
+	color: #8C8C8C;
+}
+
+.post-location {
+	color: #8C8C8C;
+}
+
+.post-time {
+	color: #8C8C8C;
+}
+
+.past-post-time {
+	color: #E13B3B;
+}
+
+.post {
+	overflow-x: hidden;
+	border-bottom: solid 1px #B8B8B8;
+	border-top: solid 1px #B8B8B8;
+}
+
+.rate {
+	font-size: 23px;
+}
+
+.due-date {
+	font-size: 23px;
+}
+
+.past-due-date {
+	font-size: 23px;
+	color: #E13B3B;
+}
+
+.course-post-info {
+	float: left;
+	padding: 10px;
+	width: 300px;
+}
+
+.course-post-title {
+	font-size: 25px;
+	color: black;
+	font-weight: 400;
+
+}
+
+.course-post {
+	overflow: auto;
+	border-bottom: solid 1px #B8B8B8;
+	border-top: solid 1px #B8B8B8;
+}
+
+#course-title {
+	text-align: center;
+	padding-top: 10px;
+}
+
+#course-title h1 {
+	font-size: 11px;
+	color: white;
+	text-decoration: none;
+}
+
+#course-title img {
+	width: 40px;
+	height: 40px;
+}
+
+#course-title ul {
+	margin: 0px;
+	padding: 0px;
+	text-align: right;
+	padding-right: 8px;
+}
+
+#course-title ul li {
+	color: white;
+	list-style-type: none;
+}
+
+#course-title a:last-child img {
+	padding-top: 10px;
+}
+
+.top-bar {
+	overflow: auto;
+	border-bottom: solid 1px #B8B8B8;
+	max-width: 780px;
+}
+
+.right-content-title {
+	font-size: 40px;
+	display: inline-block;
+	padding-right: 100px;
+	font-weight: 400;
+}
+
+#add-page-title input {
+	height: 40px;
+	width: 350px;
+	font-size: 20px;
+}
+
+.second-bar {
+	padding-top: 10px;
+	max-width: 780px;
+}
+
+.second-bar h1 {
+	margin: 0px;
+	font-size: 17px;
+	font-weight: 300;
+	padding-bottom: 10px;
+}
+
+.right-content-detail {
+	max-width: 780px;
+}
+
+.right-content-course {
+	padding-top: 12px;
+	float: right;
+}
+
+.right-content-time {
+	display: inline-block;
+	vertical-align: middle;
+	float: right;
+	font-size: 26px;
+}
+
+.right-content-due-date {
+	display: inline-block;
+	padding-right: 10px;
+	border-right: solid 1px #ACACAC;
+	color: #ACACAC;
+	font-size: 30px;
+	padding: 20px;
+}
+
+.right-content-past-due-date {
+	display: inline-block;
+	padding-right: 10px;
+	border-right: solid 1px #ACACAC;
+	color: #ACACAC;
+	font-size: 30px;
+	padding: 20px;
+	color: #E13B3B;
+}
+
+.right-content-user {
+	display: inline-block;
+	color: #ACACAC;
+	font-size: 30px;
+	padding-left: 10px;
+	padding: 20px;
+}
+
+.right-content-rate {
+	display: inline-block;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-right: solid 1px #ACACAC;
+	color: #ACACAC;
+	font-size: 30px;
+	padding: 20px;
+/*	color: #E13B3B;*/
+}
+
+.right-content-past-time {
+	display: inline-block;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-right: solid 1px #ACACAC;
+	color: #ACACAC;
+	font-size: 30px;
+	padding: 20px;
+	color: #E13B3B;
+}
+
+#button-disagree {
+	width: 250px;
+	height: 40px;
+	font-size: 20px;
+	background-color: #E13B3B;
+	color: white;
+	border: none;
+	margin-left: 10px;
+}
+
+#button-add {
+	width: 250px;
+	height: 40px;
+	font-size: 20px;
+	background-color: #52B37E;
+	color: white;
+	border: none;
+	margin-left: 10px;
+}
+
+#button-add-deadline {
+	width: 250px;
+	height: 40px;
+	font-size: 20px;
+	background-color: #52B37E;
+	color: white;
+	border: none;
+	margin-left: 10px;
+}
+
+.buttons {
+	max-width: 750px;
+	text-align: center;
+	padding: 10px;
+	padding-top: 25px;
+}
+
+#rightContent {
+	position: fixed;
+	left: 410px;
+	top: 0px;
+	padding: 10px;
+	max-width: 750px;
+	height: 100%;
+	overflow-y: auto;
+}
+
+#rightContent h1 {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 40px;
+}
+
+#rightContent h2 {
+	font-size: 20px;
+}
+
+#textInput {
+	width: 750px;
+	height: 300px;
+	border: solid 1px #ACACAC;
+}
+
+#add-deadline-page {
+	display: none;
+	position: fixed;
+	left: 410px;
+	top: 0px;
+	height: 95%;
+	width: 100%;
+	padding: 10px;
+	overflow-y: auto;
+}
+
+#add-course-page {
+	display: none;
+	position: fixed;
+	left: 410px;
+	top: 0px;
+	height: 95%;
+	padding: 10px;
+	overflow-y: auto;
+}
+
+#addcourse-page-title input {
+	height: 40px;
+	width: 390px;
+	font-size: 20px;
+}
+
+#addcourse-page-section input {
+	height: 40px;
+	width: 350px;
+	font-size: 20px;
+}
+
+#button-add-course {
+	width: 250px;
+	height: 40px;
+	font-size: 20px;
+	background-color: #52B37E;
+	color: white;
+	border: none;
+	margin-left: 10px;
+}
+
+.course-item {
+	border:solid 1px #e2e2e2;
+	padding: 0px 20px 0px 20px;
+	margin: 10px 0px 10px 0px;
+	max-width: 350px;
+}
+
+#remove-course-page {
+	display: none;
+	padding: 10px;
+	position: fixed;
+	left: 410px;
+	top: 0px;
+	width: 100%;
+	height: 95%;
+	overflow-y: scroll;
+}
+
+#remove-course-page div img{
+	display: inline-block;
+	padding-right: 90px;
+	width: 20px;
+	height: 20px;
+}
+
+#remove-course-page div h1 {
+	display: inline-block;
+	padding-left: 20px;
+	font-size: 20px;
+}
+
+#button-done {
+	width: 250px;
+	height: 40px;
+	font-size: 20px;
+	background-color: #52B37E;
+	color: white;
+	border: none;
+	margin-left: 10px;
+	margin-top: 30px;
+}
+
+#no-courses-message h1 {
+	font-size: 20px;
+	display: inline-block;
+	font-weight: bold;
+	padding-right: 20px;
+}
+
+#deadlines-title h1 {
+	font-size: 30px;
+	position: relative;
+	text-align: center;
+}
+
+.capitalize {
+	text-transform: uppercase
+}
+
+#deadline-buttons {
+	position: relative;
+	text-align: right;
+}
+
+#view-button {
+	height: 25px;
+	width: 60px;
+	background-color: #52B37E;
+	color: white;
+	border: none;
+}
+
+#delete-button {
+	height: 25px;
+	width: 60px;
+	background-color: #E13B3B;
+	color: white;
+	border: none;
+	margin-left: 10px;
+}
+
+#no-deadlines-message {
+	font-size: 20px;
+	padding-left: 20px;
+}
+
+#no-courses-message {
+	font-size: 20px;
+	padding-left: 20px;
+}
+
+#display-deadline-page {
+	float: left;
+	padding: 10px;
+	max-width: 750px;
+}
+
+#display-deadline-page h1 {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 40px;
+}
+
+#display-deadline-page h2 {
+	font-size: 20px;
+}
+
+#required-fields {
+	font-weight: 400;
+	font-size: 14px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#email-prompt {
+	font-weight: 400;
+	font-size: 14px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 10px;
+}
